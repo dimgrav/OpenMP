@@ -1,0 +1,46 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <omp.h>
+
+int main(int argc, char** argv) {
+int P;
+int myid;
+int N;
+int *A;
+int *B;
+int *C;
+int i;
+
+printf("Dose to megethos ton pinakwn: ");
+scanf("%d", &N);
+
+//MPI_Bcast
+A = (int *) malloc(N * sizeof(int));
+B = (int *) malloc(N * sizeof(int));
+C = (int *) malloc(N * sizeof(int));
+printf("\npinakas A:\n");
+for (i=0; i<N; i++) {
+	A[i] = rand() % 10;
+	printf("%d, ", A[i]);
+}
+printf("\npinakas B:\n");
+for (i=0; i<N; i++) {
+	B[i] = rand() % 10;
+	printf("%d, ", B[i]);
+}
+//ta = MPI_Wtime();
+# pragma omp parallel for private(i) shared(N,A,B) 
+
+	for (i=0; i<N; i++) {
+		printf("eimai o %d kai to i einai %d\n", omp_get_thread_num(), i);
+		C[i] = A[i] + B[i];	
+	}
+
+//tt = MPI_Wtime();
+printf("\npinakas C:\n");
+for (i=0; i<N; i++) {
+	printf("%d, ", C[i]);
+}
+printf("\n\n");
+return 0;
+}
