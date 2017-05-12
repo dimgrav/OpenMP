@@ -1,6 +1,7 @@
 // Array multiplication using OpenMP and MPI
 // Author: Dimitris Gravanis, 2017
 
+/* work in progress */
 #include <stdio.h>
 #include <stdlib.h>
 #include <omp.h>
