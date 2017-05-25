@@ -8,14 +8,14 @@
 
 int main(int argc, char *argv[])
 {
-	int *A, *L;				// global, local array pointer
+	int *A, *L;			// global, local array pointer
 	int N, part;			// global, local array size	
-	int x;					// search value
-	int lcount, tcount = 0; // times x is found locally, globally
-	int i; 					// iterator
+	int x;				// search value
+	int lcount, tcount = 0; 	// times x is found locally, globally
+	int i; 				// iterator
 
 	int id, P; 			// MPI rank, size
-	double start, stop; // timer start, stop
+	double start, stop;		// timer start, stop
 
 	// MPI start
 	MPI_Init(&argc, &argv);
