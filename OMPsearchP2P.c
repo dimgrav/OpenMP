@@ -18,10 +18,10 @@ int main (int argc, char **argv)
 	
 	if (id == 0)
 	{
-	  	int *A, N, i;	// array pointer, size, iterator
+	  	int *A, N, i;		// array pointer, size, iterator
 	  	int *R;			// local array pointer
 	  	int part;		// local array size
-	  	int x, f = 0;	// search value, counter
+	  	int x, f = 0;		// search value, counter
 	  	double start, stop;	// timer start, stop
 
 	  	printf("\nInsert array size: ");
