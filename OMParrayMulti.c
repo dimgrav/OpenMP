@@ -10,12 +10,12 @@
 int main(int argc, char *argv[])
 {
 	int *A, *B, *C;		// array pointers
-	int N;				// array size
-	int i;				// iterator
-	double start, stop; // timer start, stop
+	int N;			// array size
+	int i;			// iterator
+	double start, stop;	// timer start, stop
 	
 	/* MPI variables */
-	int id, P; // rank, size
+	int id, P;		// rank, size
 	
 	
 	/* MPI Start */
