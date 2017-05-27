@@ -29,21 +29,25 @@ int main (int argc, char **argv)
 		
 		// allocate memory for A
 	    	A = malloc(N * sizeof(int));
-	    	if (A == NULL || N == 0) {
+	    	if (A == NULL || N == 0)
+		{
 			printf("\nInvalid size!");
 			printf("\n*Terminated*\n\n");
 			return -1;
+		}
 	}
 
         // insert values in A
-        for (i = 0; i < N; i++){
+        for (i = 0; i < N; i++)
+	{
 	    	A[i] = rand() % 100;
 	}
 
 	printf("\nInsert value to search for (range 0-100): ");
 	scanf("%d", &x);
 
-	while (x > 100 || x < 0){
+	while (x > 100 || x < 0)
+	{
 		printf("\nOut of bounds!\n\n");  
 		printf("\nInsert value to search for (0-100): ");
 	    	scanf("%d", &x);
@@ -56,17 +60,21 @@ int main (int argc, char **argv)
 	part = N / (P-1);
 	R = malloc((N / part) * sizeof(int));
 	    
-	for (i = 1; i < P; i++){
+	for (i = 1; i < P; i++)
+	{
 		MPI_Send(&part, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
 	}
-	for (i = 1; i < P; i++){
+	for (i = 1; i < P; i++)
+	{
 	    	MPI_Send(&x, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
 	}
-	for (i = 1; i < P; i++){
+	for (i = 1; i < P; i++)
+	{
  	    	MPI_Send(&A[(N/(P-1))*(i-1)], part, MPI_INT, i, 0, MPI_COMM_WORLD);
 	}
 	printf("\n");
-	for (i = 1; i < P; i++){
+	for (i = 1; i < P; i++)
+	{
 	   	MPI_Recv(&R[i-1], 1, MPI_INT, i, i, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 	        printf("\nSearching... ");
 	        printf("Found %d times in node %d.\n", R[i-1], i);
@@ -83,7 +91,9 @@ int main (int argc, char **argv)
 	free(A);
 	free(R);
 	
-	} else {
+	}
+	else
+	{
 		int *Pw;
 		int i;
 		int partworker, xw;
@@ -96,10 +106,12 @@ int main (int argc, char **argv)
 		MPI_Recv(&Pw[0], partworker, MPI_INT, 0, 0, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 	
 		# pragma omp parallel for private(i) shared(partworker) reduction (+:fw)	 
-		for (i = 0; i < partworker; i++)
+		for (i = 0; i < partworker; i++) 
+		{
 			if (Pw[i] == xw) 
 	    		fw++;
           		MPI_Send(&fw, 1, MPI_INT, 0, id, MPI_COMM_WORLD);
+		}
     }
 
     MPI_Finalize();
