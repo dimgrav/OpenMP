@@ -63,14 +63,8 @@ int main (int argc, char **argv)
 	for (i = 1; i < P; i++)
 	{
 		MPI_Send(&part, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
-	}
-	for (i = 1; i < P; i++)
-	{
-	    	MPI_Send(&x, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
-	}
-	for (i = 1; i < P; i++)
-	{
- 	    	MPI_Send(&A[(N/(P-1))*(i-1)], part, MPI_INT, i, 0, MPI_COMM_WORLD);
+		MPI_Send(&x, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
+		MPI_Send(&A[(N/(P-1))*(i-1)], part, MPI_INT, i, 0, MPI_COMM_WORLD);
 	}
 	printf("\n");
 	for (i = 1; i < P; i++)
