@@ -5,11 +5,11 @@
 
 int main (int argc, char** argv)
 {
-	int *A, *B, *C; // array pointers
-	int N; // size of arrays
-	int i; // iterator
-	int id, P; // task id, num of tasks
-	double start, stop; // timers
+	int *A, *B, *C; 	// array pointers
+	int N; 			// size of arrays
+	int i; 			// iterator
+	int id, P; 		// task id, num of tasks
+	double start, stop; 	// timers
 	
 	#pragma omp parallel private(id)
 	{
