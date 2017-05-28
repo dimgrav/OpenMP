@@ -10,9 +10,9 @@ int Fibon(int n);
 int main(int argc, char** argv)
 {
 	double start, starts, stop, stops;	// timers
-	int *F, *f; 						// Fib arrays
-	int N;								// fibon limit
-	int i;								// iterator
+	int *F, *f; 				// Fib arrays
+	int N;					// fibon limit
+	int i;					// iterator
 
 	printf("\nInsert Fibonacci sequence limit: ");
 	scanf("%d", &N);
