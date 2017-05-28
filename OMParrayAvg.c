@@ -7,11 +7,11 @@
 
 int main (int argc, char** argv)
 {
-	int *A; // array pointer
-	int N, i; // array size, iterator
+	int *A; 			// array pointer
+	int N, i; 			// array size, iterator
 	int sum = 0, counter = 0;
-	float avg; // avg array value
-	double start, stop; // timers
+	float avg; 			// avg array value
+	double start, stop; 		// timers
 	
 	printf("\nInsert N size of A: ");
 	scanf("%d", &N);
