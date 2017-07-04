@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 		{
 			MPI_Send(&x, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
 			MPI_Send(&part, 1, MPI_INT, i, 0, MPI_COMM_WORLD);
-			MPI_Send(&G[(i-1)*(part-1)], part, MPI_INT, i, 0, MPI_COMM_WORLD);
+			MPI_Send(&G[(i-1)*part-1], part, MPI_INT, i, 0, MPI_COMM_WORLD);
 			/* receive from workers */
 			MPI_Recv(&R[i-1], 1, MPI_INT, i, i, MPI_COMM_WORLD, MPI_STATUS_IGNORE);
 			tcount += R[i-1];
