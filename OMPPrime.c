@@ -8,10 +8,10 @@
 
 int main(int argc, char** argv)
 {
-	int N;									// prime number sequence limit
-	int i, j;								// iterators
-	int sflag, pflag;						// flags
-	int primep = 0, primes = 0;				// sum of primes
+	int N;					// prime number sequence limit
+	int i, j;				// iterators
+	int sflag, pflag;			// flags
+	int primep = 0, primes = 0;		// sum of primes
 	double starts, startp, stops, stopp;	// timers
 
 	printf("\nInsert prime number sequence limit: ");
