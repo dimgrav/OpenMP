@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 
 	// serial
 	starts = omp_get_wtime();
-	printf("\n\nThe first %d Fibonacci numbers are:\n", N);
+	printf("\n\nThe Fibonacci numbers up to %d are:\n", N);
 	for (i = 2; i < N; i++)
 	{
 		f[i] = Fibon(i);
